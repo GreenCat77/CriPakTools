@@ -166,7 +166,7 @@ namespace CriPakTools
                         Console.SetCursorPosition(0, consoleLine);
                     }
 
-                    Console.WriteLine("Updating file "+ (i + 1) + " of " + totalEntries.Count + ": \"" + ((totalEntries[i].DirName != null) ? (string)totalEntries[i].DirName + "/" : "") + totalEntries[i].FileName.ToString().Trim() + "\"...");
+                    Console.WriteLine("Writing file "+ (i + 1) + " of " + totalEntries.Count + ": \"" + ((totalEntries[i].DirName != null) ? (string)totalEntries[i].DirName + "/" : "") + totalEntries[i].FileName.ToString().Trim() + "\"...");
                     Console.WriteLine(new string(' ', Console.WindowWidth));  
                     
 
@@ -200,7 +200,7 @@ namespace CriPakTools
                                 replacedFile = true;                                
 
                                 ConsoleColor prevColor = Console.ForegroundColor;
-                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                Console.ForegroundColor = ConsoleColor.Blue;
 
                                 int numLnClr = Console.CursorTop - consoleLine;
                                 Console.SetCursorPosition(0, consoleLine);

@@ -55,8 +55,6 @@ namespace CriPakTools
                 FileTable.Add(CPAK_entry);
 
                 ms = new MemoryStream(utf_packet);
-                
-
                 utfr = new EndianReader(ms, false);
 
                 utf = new UTF(tools);

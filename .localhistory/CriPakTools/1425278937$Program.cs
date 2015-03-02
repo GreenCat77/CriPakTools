@@ -200,7 +200,7 @@ namespace CriPakTools
                                 replacedFile = true;                                
 
                                 ConsoleColor prevColor = Console.ForegroundColor;
-                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                Console.ForegroundColor = ConsoleColor.Blue;
 
                                 int numLnClr = Console.CursorTop - consoleLine;
                                 Console.SetCursorPosition(0, consoleLine);

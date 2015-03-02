@@ -151,7 +151,6 @@ namespace CriPakTools
                 //}
 
                 int consoleLine = Console.CursorTop;
-                int numReplaced = 0;
 
                 for (int i = 0; i < totalEntries.Count; i++)
                 {
@@ -166,7 +165,7 @@ namespace CriPakTools
                         Console.SetCursorPosition(0, consoleLine);
                     }
 
-                    Console.WriteLine("Updating file "+ (i + 1) + " of " + totalEntries.Count + ": \"" + ((totalEntries[i].DirName != null) ? (string)totalEntries[i].DirName + "/" : "") + totalEntries[i].FileName.ToString().Trim() + "\"...");
+                    Console.WriteLine("Checking file "+ (i + 1) + " of " + totalEntries.Count + ": \"" + ((totalEntries[i].DirName != null) ? (string)totalEntries[i].DirName + "/" : "") + totalEntries[i].FileName.ToString().Trim() + "\"...");
                     Console.WriteLine(new string(' ', Console.WindowWidth));  
                     
 
@@ -200,7 +199,7 @@ namespace CriPakTools
                                 replacedFile = true;                                
 
                                 ConsoleColor prevColor = Console.ForegroundColor;
-                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                Console.ForegroundColor = ConsoleColor.Blue;
 
                                 int numLnClr = Console.CursorTop - consoleLine;
                                 Console.SetCursorPosition(0, consoleLine);
@@ -209,7 +208,7 @@ namespace CriPakTools
 
                                 Console.SetCursorPosition(0, consoleLine);
 
-                                Console.WriteLine("Replaced file " + (++numReplaced) + " of " + replaceNames.Count + ": \"" + ((totalEntries[i].DirName != null) ? (string)totalEntries[i].DirName + "/" : "") + totalEntries[i].FileName.ToString().Trim() + "\".");
+                                Console.WriteLine("Replaced file " + (i + 1) + " of " + replaceNames.Count + ": \"" + ((totalEntries[i].DirName != null) ? (string)totalEntries[i].DirName + "/" : "") + totalEntries[i].FileName.ToString().Trim() + "\".");
 
                                 consoleLine = Console.CursorTop;
 
@@ -253,8 +252,11 @@ namespace CriPakTools
                 newCPK.Close();
                 oldFile.Close();
 
-                File.Delete(cpk_name);
-                File.Move(cpk_name + ".tmp", cpk_name);
+                if (args.Length < 4)
+                {
+                    File.Delete(cpk_name);
+                    File.Move(cpk_name + ".tmp", cpk_name);
+                }
             }
             else if (selectedFunction == "INDEX" && args.Length == 3)
             {
